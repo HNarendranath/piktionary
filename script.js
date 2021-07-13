@@ -50,10 +50,10 @@ function initialize() {
     
     // get references to the canvas element as well as the 2D drawing context
     var sigCanvas = document.getElementById("canvasSignature");
-    console.log(sigCanvas.width,sigCanvas.clientWidth);
+    //console.log(sigCanvas.width,sigCanvas.clientWidth);
     sigCanvas.height = sigCanvas.clientHeight;
     sigCanvas.width = sigCanvas.clientWidth;
-    console.log(sigCanvas.width, sigCanvas.clientWidth,"hdhf");
+    //console.log(sigCanvas.width, sigCanvas.clientWidth,"hdhf");
     var context = sigCanvas.getContext("2d");
     var canvasDiv = document.getElementById("canvasDiv");
     context.strokeStyle = 'black';
