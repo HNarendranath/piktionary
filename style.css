@@ -1,0 +1,180 @@
+* {
+    /*background-color: lightgray;*/
+
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', 'sans-serif', 'Lucida Calligraphy';
+
+}
+
+body {
+    /*background: linear-gradient(to right,rgb(47, 150, 163), rgb(48, 62, 143));*/
+    background: linear-gradient(to left,red,orange,gold);
+}
+
+.title {
+    font-family: 'Gill Sans MT';
+    font-size: 40px;
+    color: blue;
+}
+/*
+#canvasDiv {
+    position: absolute;
+    width: 60%;
+    height: 60%;
+    top: 125px;
+    left: 25px;
+    border: none;
+}
+*/
+#canvasSignature {
+    position: absolute;
+    width:60%;
+    height:75%;
+    top:10%;
+    left: 1%;
+    border: 2px solid #000;
+    background-color: white;
+    
+}
+
+#timerH2 {
+    position: absolute;
+    font-size: 40px;
+    font-family: sans-serif;
+    top: 0%;
+    right:14.5%;
+    padding-bottom: 10%;
+}
+
+#colors {
+    position: absolute;
+    top: 11.5%;
+    left: 63%;
+    height: 75%;
+    width: 3.5%;
+}
+
+#colors button {
+    position: relative;
+    display: block;
+    height: 10%;
+    width: 100%;
+    margin-bottom: 40%;
+}
+
+#sizes {
+    position: absolute;
+    top: 22%;
+    left: 68%;
+    height: 75%;
+    width: 3.5%;
+}
+
+#sizes button {
+    display: block;
+    background-color: white;
+    height: 10%;
+    width: 100%;
+    margin-bottom: 40%;
+}
+
+#chatBox {
+    position: absolute;
+    top: 200px;
+    right: 200px; 
+}
+
+#id2Copy {
+    position: absolute;
+    top: 4%;
+    left: 18%;
+    background-color: white;
+}
+
+#word {
+    position: absolute;
+    top: 2%;
+    left: 50%;
+    background-color: none;
+    font-size: 20px;
+
+}
+
+#idLbl {
+    background-color: white;
+}
+
+#copyId {
+    background-color: white;
+}
+
+#otherId {
+    background-color: white;
+    position: absolute;
+    top: 4%;
+    left: 35%;
+}
+
+#guess {
+    width:98.5%;
+    height: 30%;
+    position: relative;
+    top: -2px;
+    background-color: white;
+    right: 1.5px; 
+    font-size:xx-large;
+    border: solid;
+    border-width: 2px;
+}
+
+#chat {
+    background-color: white;
+    border: solid;
+    width:20%;
+    height: 75%;
+    position: absolute;
+    top:10%;
+    right:5%;
+    border-width: 2px;
+    font-size:x-large;
+    
+}
+
+#chatLog {
+    background-color:white;
+    border: none;
+    position: relative;
+    top: 0px;
+    padding-left:1%;
+    padding-right:1%;
+    overflow-y:scroll;
+    height: 93.7%;
+}
+
+#Credits {
+    position: absolute;
+    bottom: 2%;
+    left: 1%;
+}
+
+#chatText {
+    background-color: white;
+}
+
+h1 {
+    padding-left: 1%;
+}
+
+/*canvas {
+    height: 1000px;
+    width: 1750px;
+    border: 2px solid #000;
+}*/
+
+
+/*#game {
+    display: none;
+}
+
+#connectToServer {
+    display: contents;
+}*/
