@@ -16,6 +16,16 @@ body {
   top: 1.5%;
 }
 
+
+#timerH2 {
+    position: absolute;
+    font-size: 40px;
+    font-family: sans-serif;
+    top: 0%;
+    right:14.5%;
+    padding-bottom: 10%;
+}
+
 #canvasSignature {
   position: absolute;
   width: 60%;
