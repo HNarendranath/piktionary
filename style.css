@@ -1,180 +1,161 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;600&display=swap");
+
 * {
-    /*background-color: lightgray;*/
-
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', 'sans-serif', 'Lucida Calligraphy';
-
+  font-family: "Roboto", serif;
 }
 
 body {
-    /*background: linear-gradient(to right,rgb(47, 150, 163), rgb(48, 62, 143));*/
-    background: linear-gradient(to left,red,orange,gold);
+  background: linear-gradient(to left, orange, purple);
 }
 
 .title {
-    font-family: 'Gill Sans MT';
-    font-size: 40px;
-    color: blue;
-}
-/*
-#canvasDiv {
-    position: absolute;
-    width: 60%;
-    height: 60%;
-    top: 125px;
-    left: 25px;
-    border: none;
-}
-*/
-#canvasSignature {
-    position: absolute;
-    width:60%;
-    height:75%;
-    top:10%;
-    left: 1%;
-    border: 2px solid #000;
-    background-color: white;
-    
+  font-family: "Roboto", serif;
+  font-size: 40px;
+  color: white;
+  padding-left: 1%;
+  top: 1.5%;
 }
 
-#timerH2 {
-    position: absolute;
-    font-size: 40px;
-    font-family: sans-serif;
-    top: 0%;
-    right:14.5%;
-    padding-bottom: 10%;
+#canvasSignature {
+  position: absolute;
+  width: 60%;
+  height: 75%;
+  top: 10%;
+  left: 1.5%;
+  background-color: white;
 }
 
 #colors {
-    position: absolute;
-    top: 11.5%;
-    left: 63%;
-    height: 75%;
-    width: 3.5%;
+  position: absolute;
+  top: 11.5%;
+  left: 63%;
+  height: 75%;
+  width: 3.5%;
 }
 
 #colors button {
-    position: relative;
-    display: block;
-    height: 10%;
-    width: 100%;
-    margin-bottom: 40%;
+  position: relative;
+  display: block;
+  height: 10%;
+  width: 100%;
+  margin-bottom: 40%;
+  border: none;
+  border-radius: 18px;
 }
 
 #sizes {
-    position: absolute;
-    top: 22%;
-    left: 68%;
-    height: 75%;
-    width: 3.5%;
+  position: absolute;
+  top: 22%;
+  left: 68%;
+  height: 75%;
+  width: 3.5%;
 }
 
 #sizes button {
-    display: block;
-    background-color: white;
-    height: 10%;
-    width: 100%;
-    margin-bottom: 40%;
+  display: block;
+  background-color: white;
+  height: 10%;
+  width: 100%;
+  margin-bottom: 40%;
+  border: none;
+  border-radius: 18px;
+  font-size: larger;
 }
 
 #chatBox {
-    position: absolute;
-    top: 200px;
-    right: 200px; 
-}
-
-#id2Copy {
-    position: absolute;
-    top: 4%;
-    left: 18%;
-    background-color: white;
+  position: absolute;
+  top: 200px;
+  right: 200px;
 }
 
 #word {
-    position: absolute;
-    top: 2%;
-    left: 50%;
-    background-color: none;
-    font-size: 20px;
+  position: absolute;
+  top: 2%;
+  left: 60%;
+  background-color: none;
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+}
 
+#id2Copy {
+  position: absolute;
+  height: 5ch;
+  width: 60ch;
+  top: 4%;
+  left: 15%;
+  background-color: white;
+  border: none;
+  background: transparent;
 }
 
 #idLbl {
-    background-color: white;
+  background-color: white;
+  border: none;
+  font-size: large;
+  width: 34ch;
 }
 
 #copyId {
-    background-color: white;
+  background-color: white;
+  border: none;
+  /*height: 100%;
+  width: 100%;
+  border-radius: 18px;*/
+  font-size: large;
 }
 
 #otherId {
-    background-color: white;
-    position: absolute;
-    top: 4%;
-    left: 35%;
+  background-color: white;
+  position: absolute;
+  top: 4%;
+  left: 37%;
+  border: none;
+  font-size: large;
+  width: 34ch;
 }
 
 #guess {
-    width:98.5%;
-    height: 30%;
-    position: relative;
-    top: -2px;
-    background-color: white;
-    right: 1.5px; 
-    font-size:xx-large;
-    border: solid;
-    border-width: 2px;
+  width: 99%;
+  height: 30%;
+  position: relative;
+  bottom: 2px;
+  background-color: white;
+  font-size: xx-large;
+  border: none;
+  /*border-radius: 18px;
+  border-top-left-radius: 18px;*/
 }
 
 #chat {
-    background-color: white;
-    border: solid;
-    width:20%;
-    height: 75%;
-    position: absolute;
-    top:10%;
-    right:5%;
-    border-width: 2px;
-    font-size:x-large;
-    
+  background-color: white;
+  border: none;
+  width: 20%;
+  height: 75%;
+  position: absolute;
+  top: 10%;
+  right: 5%;
+  font-size: x-large;
 }
 
 #chatLog {
-    background-color:white;
-    border: none;
-    position: relative;
-    top: 0px;
-    padding-left:1%;
-    padding-right:1%;
-    overflow-y:scroll;
-    height: 93.7%;
-}
-
-#Credits {
-    position: absolute;
-    bottom: 2%;
-    left: 1%;
+  background-color: white;
+  border: none;
+  position: relative;
+  top: 0px;
+  padding-left: 1%;
+  padding-right: 1%;
+  overflow-y: scroll;
+  height: 93.7%;
 }
 
 #chatText {
-    background-color: white;
+  background-color: white;
 }
 
-h1 {
-    padding-left: 1%;
+#Credits {
+  position: absolute;
+  bottom: 1.5%;
+  left: 1.5%;
+  color: white;
 }
-
-/*canvas {
-    height: 1000px;
-    width: 1750px;
-    border: 2px solid #000;
-}*/
-
-
-/*#game {
-    display: none;
-}
-
-#connectToServer {
-    display: contents;
-}*/
