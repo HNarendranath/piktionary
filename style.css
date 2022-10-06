@@ -110,11 +110,11 @@ body {
   position: absolute;
   height:2%;
   width: 30%;
-  top: 5%;
-  left: 42%;
+  top: 4%;
+  left: 35%;
   border: none;
   font-size: large;
-  width: 34ch;
+  /*width: 34ch;*/
   
 }
 #guess {
