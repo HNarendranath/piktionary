@@ -243,11 +243,12 @@ var myturn = false;
 var conns = [];
 
 peer.on('open', function(id) {
-	var copyText = id;
+	document.getElementById("idLbl").innerHTML="hellow";
+	var copyText = document.getElementById("idLbl");
 	copyText.select();
 	console.log(id);
 	document.execCommand("copy");
-	document.getElementById("chatText").innerHTML="hellow";
+	
 });
 		
 function connect() {
