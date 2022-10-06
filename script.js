@@ -244,7 +244,7 @@ var conns = [];
 
 peer.on('open', function(id) {
 	console.log(id);
-    	document.getElementById("idLbl").innerHTML="hellow";
+    document.getElementById("idLbl").innerHTML="hellow";
 });
 		
 function connect() {
