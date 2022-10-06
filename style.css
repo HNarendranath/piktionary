@@ -99,11 +99,7 @@ body {
   background: transparent;
 }
 
-#idLbl {
-  background-color: white;
-  border: none;
-  font-size: large;
-  width: 34ch;
+
 
 
 #copyId {
@@ -114,6 +110,12 @@ body {
   border-radius: 18px;*/
   font-size: large;
 }*/
+
+#idLbl {
+  background-color: white;
+  border: none;
+  font-size: large;
+  width: 34ch;
 
 #otherId {
   background-color: white;
