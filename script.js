@@ -239,7 +239,7 @@ function clearCanvas() {
 
 var peer = new Peer();
 var conn;
-var myturn = true;
+var myturn = false;
 var conns = [];
 
 peer.on('open', function(id) {
@@ -251,8 +251,8 @@ function connect() {
     //console.log("connect function activated");
 	var connId = document.getElementById("otherId").value;
 	conn = peer.connect(connId);
-    document.getElementById("otherId").disabled = true;
-
+	document.getElementById("otherId").disabled = true;
+	document.getElementById("chatText").innerHTML = "";
 	conn.on('open', () => {
 		
 		document.getElementById("guess").disabled = false;
