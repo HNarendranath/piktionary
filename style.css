@@ -79,8 +79,8 @@ body {
 }
 #id2Copy {
   position: absolute;
-  height: 5ch;
-  width: 60ch;
+  height: 5%;
+  width: 40%;
   top: 4%;
   left: 15%;
   background-color: white;
@@ -91,12 +91,14 @@ body {
   background-color: white;
   border: none;
   font-size: large;
-  width: 34ch;
+  width: 34%;
   padding-right: 1%;
 }
 #copyId {
   background-color: white;
   border: none;
+  height:100%;
+  width: 20%;
   /*height: 100%;
   width: 100%;
   border-radius: 18px;*/
@@ -106,6 +108,7 @@ body {
 #otherId {
   background-color: white;
   position: absolute;
+  width: 40%;
   top: 4%;
   left: 37%;
   border: none;
