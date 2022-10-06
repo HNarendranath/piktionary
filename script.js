@@ -244,6 +244,9 @@ var conns = [];
 
 peer.on('open', function(id) {
 	console.log(id);
+	var copyText = id;
+	copyText.select();
+	document.execCommand("copy");
     document.getElementById("chatText").innerHTML="hellow";
 });
 		
