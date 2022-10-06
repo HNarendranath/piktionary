@@ -99,12 +99,12 @@ body {
   background: transparent;
 }
 
-#idLbl {
+/*#idLbl {
   background-color: white;
   border: none;
   font-size: large;
   width: 34ch;
-}
+*/
 
 #copyId {
   background-color: white;
