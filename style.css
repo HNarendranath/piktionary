@@ -69,9 +69,10 @@ body {
   right: 200px;
 }
 #word {
-  position: absolute;
+  /*position: absolute;*/
   top: 2%;
-  left: 60%;
+  /*left: 60%;*/
+  padding-left: 2%;
   background-color: none;
   font-size: 20px;
   font-weight: bold;
@@ -79,7 +80,7 @@ body {
 }
 #id2Copy {
   position: absolute;
-  height: 5%;
+  height: 2%;
   width: 40%;
   top: 4%;
   left: 15%;
@@ -91,6 +92,7 @@ body {
   background-color: white;
   border: none;
   font-size: large;
+  height: 100%;
   width: 34%;
   padding-right: 1%;
 }
@@ -107,7 +109,8 @@ body {
 }
 #otherId {
   background-color: white;
-  position: absolute;
+  /*position: absolute;*/
+  height:100%;
   width: 40%;
   top: 4%;
   left: 37%;
