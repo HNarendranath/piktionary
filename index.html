@@ -1,31 +1,18 @@
 <!DOCTYPE html>
-
 <html lang="en">
-
     <head>
-
         <meta charset="utf-8" />
-
         <title>Piktionary</title>
-
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
         <script src="https://unpkg.com/peerjs@1.3.1/dist/peerjs.min.js"></script>
         <script src="script.js"></script>
         <link rel="icon" href="icon.png">
         <link rel="stylesheet" href="style.css">
-
     </head>
-
     <body>
-
         <h1 class="title" id="title">Piktionary</h1>
-
         
-
         <canvas id="canvasSignature"></canvas>
-
-
-
         <div id="colors">
             <button action="#" id="red" style="background-color:red" onclick="changeColor(this);return false;return false" value = "Red"/>
             <button action="#" id="yellow" style="background-color:yellow" onclick="changeColor(this);return false" value = "Yellow"/>
@@ -43,32 +30,26 @@
             <button action="#" id="ff" onclick="changeSize(this);return false" value = 100>Huge</button>
         </div>
         <div id="chat">
-
             <div id="chatInput">
                 <form action="#" onsubmit="logMessage(); return false">
                     <input type="text" id="guess" name="guess" placeholder="Enter guess..." autocomplete="off">
                 </form>
             </div>
-
             <div id="chatLog">
                 <p id="chatText"></p>
             </div>
-
         </div>
-
         <p id="Credits">Developed by:   Virgile Alexandre-Epivent & Hari Narendranath</p>
 
-        <!--<form action="#" id="id2Copy" onsubmit="copyID();return false">
-            <input id="idLbl" value="..."/>
-            <input type="submit" id="copyId" value="Copy ID"
-        </form>-->
-        <p id = idLbl>...</p>
+        <form action="#" id="id2Copy" onsubmit="copyID();return false">
+            <textarea readonly="true" id="idLbl" value="..."/>
+            <input readonly="false" id="idLbl" value="..."/>
+            <input type="submit" id="copyId" value="Copy ID">
+        </form>
         <form action="#" id="idForm" onsubmit="connect();return false">
             <input type="text" placeholder="Enter Host Id..." id="otherId" autocomplete="off">
         </form>
         <p id="word">...</p>
         <h2 id="timerH2">0</h2>
     </body>
-
-
 </html> 
