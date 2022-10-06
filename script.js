@@ -239,7 +239,7 @@ function clearCanvas() {
 
 var peer = new Peer();
 var conn;
-var myturn = false;
+var myturn = true;
 var conns = [];
 
 peer.on('open', function(id) {
