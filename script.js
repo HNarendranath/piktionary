@@ -244,8 +244,11 @@ var conns = [];
 
 peer.on('open', function(id) {
 	document.getElementById("idLbl").innerHTML="hellow";
-	var copyText = document.getElementById("idLbl");
-	copyText.select();
+	var text = document.getElementById("idLbl").innerHTML;
+	var elem = document.createElement("textarea");
+	document.body.appendChild(elem);
+	elem.value = text;
+	elem.select();
 	console.log(id);
 	document.execCommand("copy");
 	
