@@ -92,6 +92,7 @@ body {
   border: none;
   font-size: large;
   width: 34ch;
+  padding-right: 1%;
 }
 #copyId {
   background-color: white;
@@ -100,6 +101,7 @@ body {
   width: 100%;
   border-radius: 18px;*/
   font-size: large;
+  padding-right: 1%;
 }
 #otherId {
   background-color: white;
@@ -109,6 +111,7 @@ body {
   border: none;
   font-size: large;
   width: 34ch;
+  
 }
 #guess {
   width: 99%;
