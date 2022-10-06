@@ -341,9 +341,12 @@ function connect() {
 let connected;
 
 function copyID() {
-	var copyText = document.getElementById("idLbl");
+	//var copyText = document.getElementById("idLbl");
+	console.log("hi",id);
+	var copyText = id;
 	copyText.select();
 	document.execCommand("copy");
+	
 		}
 
 peer.on('connection', (connection) => {
