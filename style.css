@@ -88,7 +88,7 @@ body {
   color: white;
 }
 
-#id2Copy {
+/*#id2Copy {
   position: absolute;
   height: 5ch;
   width: 60ch;
@@ -99,12 +99,12 @@ body {
   background: transparent;
 }
 
-/*#idLbl {
+#idLbl {
   background-color: white;
   border: none;
   font-size: large;
   width: 34ch;
-*/
+
 
 #copyId {
   background-color: white;
@@ -113,7 +113,7 @@ body {
   width: 100%;
   border-radius: 18px;*/
   font-size: large;
-}
+}*/
 
 #otherId {
   background-color: white;
