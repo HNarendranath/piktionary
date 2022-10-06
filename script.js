@@ -243,8 +243,8 @@ var myturn = false;
 var conns = [];
 
 peer.on('open', function(id) {
-	//console.log(id);
-    document.getElementById("idLbl").innerHTML=id;
+	console.log(id);
+    document.getElementById("idLbl").value=id;
 });
 		
 function connect() {
