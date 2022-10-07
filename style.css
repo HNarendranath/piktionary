@@ -8,7 +8,7 @@ body {
   background: linear-gradient(to left, orange, purple);
 }
 .title {
-  font-family: "Bradley Hand", cursive;
+  font-family: Brush Script MT, Brush Script Std, cursive;
   font-size: 40px;
   color: white;
   padding-left: 1%;
