@@ -8,21 +8,19 @@ body {
   background: linear-gradient(to left, orange, purple);
 }
 .title {
+  position:absolute;
   font-family: Brush Script MT, Brush Script Std, cursive;
-  width: 10%;
-  height: 4%;
-  font-size: 20%;
+  font-size: 250%;
   color: white;
   left: 1.5%;
-  top: 1.5%;
+  top:-1%;
 }
 #timerH2 {
     position: absolute;
-    font-size: 40px;
+    font-size: 250%;
     font-family:Arial,sans-serif;
-    top: 0%;
+    top: -2%;
     right:14.5%;
-    padding-bottom: 10%;
 }
 #canvasSignature {
   position: absolute;
@@ -63,7 +61,8 @@ body {
   margin-bottom: 40%;
   border: none;
   border-radius: 18px;
-  font-size: larger;
+  font-size: 60%;
+  font-weight:bolder;
 }
 #chatBox {
   position: absolute;
@@ -76,7 +75,7 @@ body {
   left: 65%;
   padding-left: 2%;
   background-color: none;
-  font-size: 20px;
+  font-size: 105%;;
   font-weight: bold;
   color: white;
 }
@@ -96,24 +95,26 @@ body {
   font-size: large;
   height: 100%;
   width: 70%;
-  padding-right: 1%;
+  padding-right: 2%;
 }
 #copyId {
+  position: relative;
   background-color: white;
   border: none;
   height:100%;
   width: 25%;
   border-radius: 18px;*/
   font-size: large;
+  left:2%;
   padding-right: 1%;
 }
 #otherId {
   background-color: white;
   position: absolute;
   height:2%;
-  width: 30%;
+  width: 15%;
   top: 4%;
-  left: 35%;
+  left: 36%;
   border: none;
   font-size: large;
   /*width: 34ch;*/
@@ -157,5 +158,6 @@ body {
   position: absolute;
   bottom: 1.5%;
   left: 1.5%;
+  font-size: 100%;
   color: white;
 }
