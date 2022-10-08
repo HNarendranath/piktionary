@@ -13,26 +13,26 @@ body {
   font-size: 250%;
   color: white;
   left: 1.5%;
-  top:-1%;
+  top:1%;
 }
 #timerH2 {
     position: absolute;
     font-size: 250%;
     font-family:Arial,sans-serif;
-    top: -2%;
+    top: 0%;
     right:14.5%;
 }
 #canvasSignature {
   position: absolute;
   width: 60%;
   height: 75%;
-  top: 10%;
+  top: 13%;
   left: 1.5%;
   background-color: white;
 }
 #colors {
   position: absolute;
-  top: 11.5%;
+  top: 17%;
   left: 63%;
   height: 75%;
   width: 3.5%;
@@ -48,7 +48,7 @@ body {
 }
 #sizes {
   position: absolute;
-  top: 22%;
+  top: 27%;
   left: 68%;
   height: 75%;
   width: 3.5%;
@@ -71,7 +71,7 @@ body {
 }*/
 #word {
   position: absolute;
-  top: 3%;
+  top: 4%;
   left: 65%;
   padding-left: 2%;
   background-color: none;
@@ -83,7 +83,7 @@ body {
   position: absolute;
   height: 2%;
   width: 20%;
-  top: 4%;
+  top: 5%;
   left: 15%;
   background-color: white;
   border: none;
@@ -117,7 +117,7 @@ body {
   font-family:Arial,sans-serif;
   height:2%;
   width: 15%;
-  top: 4.85%;
+  top: 6%;
   left: 36%;
   border: none;
   font-size: 100%;
