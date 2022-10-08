@@ -212,7 +212,8 @@ function getWord() {
 	});
 	//theWord = word;
 	document.getElementById("word").innerHTML = theWord;
-	sendWord(word);
+	//sendWord(word);
+	console.log(theWord)
 }
 
 
