@@ -196,10 +196,9 @@ if (username != null) {
 }
 
 function getWord() {
-	/*var rndnumber = Math.floor(Math.random() * 113);
+	rndnumber = Math.floor(Math.random() * 113);
 	var word = words[rndnumber];
-	theWord = word;*/
-	theWord = https://random-word-api.herokuapp.com/word?lang=en
+	theWord = word;
 	document.getElementById("word").innerHTML = theWord;
 	sendWord(word);
 }
