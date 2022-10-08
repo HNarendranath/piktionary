@@ -64,14 +64,14 @@ body {
   font-size: 60%;
   font-weight:bolder;
 }
-#chatBox {
+/*#chatBox {
   position: absolute;
   top: 200px;
   right: 200px;
-}
+}*/
 #word {
   position: absolute;
-  top: 2%;
+  top: 3%;
   left: 65%;
   padding-left: 2%;
   background-color: none;
@@ -92,6 +92,7 @@ body {
 #idLbl {
   background-color: white;
   border: none;
+  font-family: Arial, sans-serif;
   font-size: large;
   height: 100%;
   width: 70%;
@@ -101,32 +102,35 @@ body {
   position: relative;
   background-color: white;
   border: none;
-  height:100%;
+  text-align:center;
+  font-family: Arial, sans-serif;
+  height:200%;
   width: 25%;
-  border-radius: 18px;*/
-  font-size: large;
+  border-radius: 50%;
+  font-size: 95%;
   left:2%;
   padding-right: 1%;
 }
 #otherId {
   background-color: white;
   position: absolute;
+  font-family:Arial,sans-serif;
   height:2%;
   width: 15%;
-  top: 4%;
+  top: 4.85%;
   left: 36%;
   border: none;
-  font-size: large;
+  font-size: 100%;
   /*width: 34ch;*/
   
 }
 #guess {
-  width: 99%;
+  width: 98.5%;
   height: 30%;
   position: relative;
-  bottom: 2px;
+  bottom: 1%;
   background-color: white;
-  font-size: xx-large;
+  font-size:120%;
   border: none;
   /*border-radius: 18px;
   border-top-left-radius: 18px;*/
@@ -148,14 +152,16 @@ body {
   top: 0px;
   padding-left: 1%;
   padding-right: 1%;
+  overflow-x: scroll;
   overflow-y: scroll;
-  height: 93.7%;
+  height: 98%;
 }
 #chatText {
   background-color: white;
 }
 #Credits {
   position: absolute;
+  font-family: cursive; 
   bottom: 1.5%;
   left: 1.5%;
   font-size: 100%;
