@@ -204,6 +204,7 @@ function getWord() {
 	    headers: { 'X-Api-Key': 'J+UX7ifSxylbRI6bRsHKIA==njxACxEQNHZIYhyq'},
 	    contentType: 'application/json',
 	    success: function(result) {
+		console.log(result+"------------------")
 		theWord = result;
 	    },
 	    error: function ajaxError(jqXHR) {
