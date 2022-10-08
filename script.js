@@ -196,9 +196,21 @@ if (username != null) {
 }
 
 function getWord() {
-	rndnumber = Math.floor(Math.random() * 113);
-	var word = words[rndnumber];
-	theWord = word;
+	/*rndnumber = Math.floor(Math.random() * 113);
+	var word = words[rndnumber];*/
+	$.ajax({
+	    method: 'GET',
+	    url: 'https://api.api-ninjas.com/v1/randomword',
+	    headers: { 'X-Api-Key': 'J+UX7ifSxylbRI6bRsHKIA==njxACxEQNHZIYhyq'},
+	    contentType: 'application/json',
+	    success: function(result) {
+		theWord = result;
+	    },
+	    error: function ajaxError(jqXHR) {
+		console.error('Error: ', jqXHR.responseText);
+	    }
+	});
+	//theWord = word;
 	document.getElementById("word").innerHTML = theWord;
 	sendWord(word);
 }
