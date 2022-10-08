@@ -1,73 +1,169 @@
-<!DOCTYPE html>
-
-<html lang="en">
-
-    <head>
-
-        <meta charset="utf-8" />
-
-        <title>Piktionary</title>
-
-        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-        <script src="https://unpkg.com/peerjs@1.3.1/dist/peerjs.min.js"></script>
-        <script src="script.js"></script>
-        <link rel="icon" href="icon.png">
-        <link rel="stylesheet" href="style.css">
-
-    </head>
-
-    <body>
-
-        <h1 class="title" id="title">Piktionary</h1>
-
-        
-
-        <canvas id="canvasSignature"></canvas>
+/*@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;600&display=swap");*/
 
 
-
-        <div id="colors">
-            <button action="#" id="red" style="background-color:red" onclick="changeColor(this);return false;return false" value = "Red"/>
-            <button action="#" id="yellow" style="background-color:yellow" onclick="changeColor(this);return false" value = "Yellow"/>
-            <button action="#" id="orange" style="background-color:orange" onclick="changeColor(this);return false" value = "orange"/>
-            <button action="#" id="blue" style="background-color:blue" onclick="changeColor(this);return false" value = "Blue"/>
-            <button action="#" id="green" style="background-color:green" onclick="changeColor(this);return false" value = "Green"/>
-            <button action="#" id ="black" style="background-color:black" onclick="changeColor(this);return false" value = "Black"/>
-            <button action="#" id="white" style="background-color:white" onclick="changeColor(this);return false" value = "White"/>
-        </div>
-        <div id="sizes">
-            <button action="#" id="p" onclick="changeSize(this);return false;" value=5>Very Small</button>
-            <button action="#" id="mp" onclick="changeSize(this);return false" value = 15>Small</button>
-            <button action="#" id="mf" onclick="changeSize(this);return false" value = 22>Medium</button>
-            <button action="#" id="f"  onclick="changeSize(this);return false" value = 27>Large</button>
-            <button action="#" id="ff" onclick="changeSize(this);return false" value = 100>Huge</button>
-        </div>
-        <div id="chat">
-
-            <div id="chatInput">
-                <form action="#" onsubmit="logMessage(); return false">
-                    <input type="text" id="guess" name="guess" placeholder="Enter guess..." autocomplete="off">
-                </form>
-            </div>
-
-            <div id="chatLog">
-                <p id="chatText"></p>
-            </div>
-
-        </div>
-
-        <p id="Credits">Developed by: Hari Narendranath</p>
-
-        <form action="#" id="id2Copy" onsubmit="copyID();return false">
-            <input id="idLbl" value="..."/>
-            <input type="submit" id="copyId" value="Copy ID">
-        </form>
-        <form action="#" id="idForm" onsubmit="connect();return false">
-            <input type="text" placeholder="Enter Host Id..." id="otherId" autocomplete="off">
-        </form>
-        <p id="word">...</p>
-        <h2 id="timerH2">0</h2>
-    </body>
-
-
-</html> 
+* {
+  font-family: "Roboto", serif;
+}
+body {
+  background: linear-gradient(to left, orange, purple);
+}
+.title {
+  position:absolute;
+  font-family: Brush Script MT, Brush Script Std, cursive;
+  font-size: 250%;
+  color: white;
+  left: 1.5%;
+  top:-1%;
+}
+#timerH2 {
+    position: absolute;
+    font-size: 250%;
+    font-family:Arial,sans-serif;
+    top: -2%;
+    right:14.5%;
+}
+#canvasSignature {
+  position: absolute;
+  width: 60%;
+  height: 75%;
+  top: 10%;
+  left: 1.5%;
+  background-color: white;
+}
+#colors {
+  position: absolute;
+  top: 11.5%;
+  left: 63%;
+  height: 75%;
+  width: 3.5%;
+}
+#colors button {
+  position: relative;
+  display: block;
+  height: 10%;
+  width: 100%;
+  margin-bottom: 40%;
+  border: none;
+  border-radius: 20%;
+}
+#sizes {
+  position: absolute;
+  top: 22%;
+  left: 68%;
+  height: 75%;
+  width: 3.5%;
+}
+#sizes button {
+  display: block;
+  background-color: white;
+  height: 10%;
+  width: 100%;
+  margin-bottom: 40%;
+  border: none;
+  border-radius: 20%;
+  font-size: 60%;
+  font-weight:bolder;
+}
+/*#chatBox {
+  position: absolute;
+  top: 200px;
+  right: 200px;
+}*/
+#word {
+  position: absolute;
+  top: 3%;
+  left: 65%;
+  padding-left: 2%;
+  background-color: none;
+  font-size: 105%;;
+  font-weight: bold;
+  color: white;
+}
+#id2Copy {
+  position: absolute;
+  height: 2%;
+  width: 20%;
+  top: 4%;
+  left: 15%;
+  background-color: white;
+  border: none;
+  background: transparent;
+}
+#idLbl {
+  background-color: white;
+  border: none;
+  font-family: Arial, sans-serif;
+  font-size: large;
+  height: 100%;
+  width: 70%;
+  padding-right: 2%;
+}
+#copyId {
+  position: relative;
+  background-color: white;
+  border: none;
+  text-align:center;
+  font-family: Arial, sans-serif;
+  height:200%;
+  width: 25%;
+  border-radius: 50%;
+  font-size: 95%;
+  left:2%;
+  padding-right: 1%;
+}
+#otherId {
+  background-color: white;
+  position: absolute;
+  font-family:Arial,sans-serif;
+  height:2%;
+  width: 15%;
+  top: 4.85%;
+  left: 36%;
+  border: none;
+  font-size: 100%;
+  /*width: 34ch;*/
+  
+}
+#guess {
+  width: 98.5%;
+  height: 30%;
+  position: relative;
+  bottom: 1%;
+  background-color: white;
+  font-size:120%;
+  border: none;
+  /*border-radius: 18px;
+  border-top-left-radius: 18px;*/
+}
+#chat {
+  background-color: white;
+  border: none;
+  width: 20%;
+  height: 75%;
+  position: absolute;
+  top: 10%;
+  right: 5%;
+  font-size: x-large;
+}
+#chatLog {
+  background-color: white;
+  border: none;
+  position: relative;
+  top: 0px;
+  padding-left: 1%;
+  padding-right: 1%;
+  overflow-x: scroll;
+  overflow-y: scroll;
+  height: 98%;
+}
+#chatText {
+  background-color: white;
+}
+#Credits {
+  position: absolute;
+  font-family: cursive; 
+  bottom: 1.5%;
+  left: 1.5%;
+  font-size: 100%;
+  color: white;
+}
