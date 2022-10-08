@@ -44,7 +44,7 @@ body {
   width: 100%;
   margin-bottom: 40%;
   border: none;
-  border-radius: 18px;
+  border-radius: 20%;
 }
 #sizes {
   position: absolute;
@@ -60,7 +60,7 @@ body {
   width: 100%;
   margin-bottom: 40%;
   border: none;
-  border-radius: 18px;
+  border-radius: 20%;
   font-size: 60%;
   font-weight:bolder;
 }
