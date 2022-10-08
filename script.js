@@ -196,11 +196,25 @@ if (username != null) {
 }
 
 function getWord() {
-    var rndnumber = Math.floor(Math.random() * 113);
-    var word = words[rndnumber];
-    theWord = word;
-    document.getElementById("word").innerHTML = theWord;
-    sendWord(word);
+	/*var rndnumber = Math.floor(Math.random() * 113);
+	var word = words[rndnumber];
+	theWord = word;*/
+	const settings = {
+	"async": true,
+	"crossDomain": true,
+	"url": "https://pictionary-charades-word-generator.p.rapidapi.com/charades",
+	"method": "GET",
+	"headers": {
+		"X-RapidAPI-Key": "c7eff6f615msh1f45f7fd62fb666p1890cejsn4ca8c6c211b4",
+		"X-RapidAPI-Host": "pictionary-charades-word-generator.p.rapidapi.com"
+		}
+	};
+
+	$.ajax(settings).done(function (response) {
+		theWord = response;
+	});
+	document.getElementById("word").innerHTML = theWord;
+	sendWord(word);
 }
 
 
