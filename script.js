@@ -204,17 +204,15 @@ function getWord() {
 	    headers: { 'X-Api-Key': 'J+UX7ifSxylbRI6bRsHKIA==njxACxEQNHZIYhyq'},
 	    contentType: 'application/json',
 	    success: function(result) {
-		console.log(result+"------------------")
-		theWord = result;
+		theWord = result["word"];
 	    },
 	    error: function ajaxError(jqXHR) {
 		console.error('Error: ', jqXHR.responseText);
 	    }
 	});
-	//theWord = word;
+	
 	document.getElementById("word").innerHTML = theWord;
-	//sendWord(word);
-	console.log(theWord)
+	sendWord(theWord);
 }
 
 
