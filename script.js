@@ -199,20 +199,18 @@ function getWord() {
 	/*var rndnumber = Math.floor(Math.random() * 113);
 	var word = words[rndnumber];
 	theWord = word;*/
-	const settings = {
-	"async": true,
-	"crossDomain": true,
-	"url": "https://pictionary-charades-word-generator.p.rapidapi.com/charades",
-	"method": "GET",
-	"headers": {
-		"X-RapidAPI-Key": "c7eff6f615msh1f45f7fd62fb666p1890cejsn4ca8c6c211b4",
-		"X-RapidAPI-Host": "pictionary-charades-word-generator.p.rapidapi.com"
-		}
-	};
+	const options = {
+		method: 'GET',
+		headers: {
+			'X-RapidAPI-Key': 'c7eff6f615msh1f45f7fd62fb666p1890cejsn4ca8c6c211b4',
+			'X-RapidAPI-Host': 'pictionary-charades-word-generator.p.rapidapi.com'
+			}
+		};
 
-	$.ajax(settings).done(function (response) {
-		theWord = response;
-	});
+	fetch('https://pictionary-charades-word-generator.p.rapidapi.com/charades?difficulty=medium', options)
+		.then(response => response.json())
+		.then(response => theWord = response)
+		.catch(err => console.error(err));
 	document.getElementById("word").innerHTML = theWord;
 	sendWord(word);
 }
