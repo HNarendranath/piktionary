@@ -205,15 +205,14 @@ function getWord() {
 	    contentType: 'application/json',
 	    success: function(result) {
 		theWord = result["word"];
-		console.log(result)
-		console.log(result.word)
-		console.log(result["word"])
+		
 	    },
 	    error: function ajaxError(jqXHR) {
 		console.error('Error: ', jqXHR.responseText);
 	    }
 	});
-	
+	console.log(theWord)
+	console.log("===========================")
 	document.getElementById("word").innerHTML = theWord;
 	sendWord(theWord);
 }
