@@ -373,14 +373,14 @@ peer.on('connection', (connection) => {
 			connected = true;
 			sendMyTurn();
 			getWord();
-		}
+		});
 			
 	else {
 		
 		connection.on("open",()=>{
 			connected = true;
 			sendWord(theWord);
-		}
+		});
 	});
 
 	connection.on("data", (data) => {
