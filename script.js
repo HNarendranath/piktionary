@@ -382,7 +382,7 @@ peer.on('connection', (connection) => {
 			connected = true;
 			sendWord(theWord);
 		});
-	});
+	};
 
 	connection.on("data", (data) => {
 		for (var i = 0; i<conns.length; i++) {
