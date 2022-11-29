@@ -254,6 +254,7 @@ var peer = new Peer();
 var conn;
 var myturn = false;
 var conns = [];
+var started = false;
 
 peer.on('open', function(id) {
 	console.log(id);
@@ -363,14 +364,23 @@ peer.on('connection', (connection) => {
     ////console.log("connected")
 	var conn1 = connection;
 	conns.push(conn1);
-    	myturn = true;
-	document.getElementById("otherId").disabled = true;
-	document.getElementById("guess").disabled = true;
-    
-	connection.on("open",()=>{
-		connected = true;
-        sendMyTurn();
-        getWord();
+	if (started == false) {
+		myturn = true;
+		document.getElementById("otherId").disabled = true;
+		document.getElementById("guess").disabled = true;
+
+		connection.on("open",()=>{
+			connected = true;
+			sendMyTurn();
+			getWord();
+		}
+			
+	else {
+		
+		connection.on("open",()=>{
+			connected = true;
+			sendWord(theWord);
+		}
 	});
 
 	connection.on("data", (data) => {
