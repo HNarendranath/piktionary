@@ -374,6 +374,7 @@ peer.on('connection', (connection) => {
 			sendMyTurn();
 			getWord();
 		});
+	}
 			
 	else {
 		
