@@ -334,7 +334,7 @@ function connect() {
             //sigCanvas.getContext("2d").drawImage(data,0,0)
             var image = new Image();
             image.onload = function() {
-                sigCanvas.getContext("2d").drawImage(image, 0, 0);
+                sigCanvas.getContext("2d").drawImage(image, 0, 0,sigCanvas.width,sigCanvas.height);
             };
             image.src = data;
         }
@@ -363,7 +363,7 @@ peer.on('connection', (connection) => {
     ////console.log("connected")
 	var conn1 = connection;
 	conns.push(conn1);
-    myturn = true;
+    	myturn = true;
 	document.getElementById("otherId").disabled = true;
 	document.getElementById("guess").disabled = true;
     
