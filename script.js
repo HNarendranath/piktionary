@@ -34,14 +34,13 @@ function getPosition(mouseEvent, sigCanvas) {
 function changeColor(id) {
     var idValue = id.value.toLowerCase();
     lineColor = /*getComputedStyle(id).backgroundColor*/idValue.toString();
-    //console.log(lineColor);
-    //initialize();
+    
 }
 
 function changeSize(id) {
     var idValue = id.value;
     width = idValue;
-    ////console.log(lineColor);
+    
 }
 
 
@@ -50,10 +49,8 @@ function initialize() {
     
     // get references to the canvas element as well as the 2D drawing context
     var sigCanvas = document.getElementById("canvasSignature");
-    //console.log(sigCanvas.width,sigCanvas.clientWidth);
     sigCanvas.height = sigCanvas.clientHeight;
     sigCanvas.width = sigCanvas.clientWidth;
-    //console.log(sigCanvas.width, sigCanvas.clientWidth,"hdhf");
     var context = sigCanvas.getContext("2d");
     var canvasDiv = document.getElementById("canvasDiv");
     context.strokeStyle = 'black';
@@ -130,7 +127,6 @@ function initialize() {
         // draw a line to wherever the mouse moves to
         $("#canvasSignature").mousedown(function (mouseEvent) {
             var position = getPosition(mouseEvent, sigCanvas);
-            ////console.log(position)
             context.moveTo(position.X-sigCanvas.offsetLeft, position.Y-sigCanvas.offsetTop);
             context.beginPath();
 
@@ -176,13 +172,12 @@ function finishDrawing(mouseEvent, sigCanvas, context) {
         .unbind("mouseup")
         .unbind("mouseout");
 }
-///         CANVAS STUFF FINISHED. YOU CAN EDIT THE CONTENT BELOW
+///         END OF CANVAS / DRAWING STUFF
 
 
-/*function WriteFile(file) {
-}*/
 
-///         LOG MESSAGE TO PAGE
+
+
 
 
 let players = [];
@@ -196,38 +191,35 @@ if (username != null) {
 }
 
 function getWord() {
-	/*rndnumber = Math.floor(Math.random() * 113);
-	var word = words[rndnumber];*/
+	//use ajax to make request to API for randow word
 	$.ajax({
 	    method: 'GET',
 	    url: 'https://api.api-ninjas.com/v1/randomword',
 	    headers: { 'X-Api-Key': 'J+UX7ifSxylbRI6bRsHKIA==njxACxEQNHZIYhyq'},
 	    contentType: 'application/json',
 	    success: function(result) {
+		// if successful save the word in variable "theWord" and change html element with id "word" text to theWord
 		theWord = result["word"];
 		document.getElementById("word").innerHTML = theWord;
+		// use sendWord() function to send word to other users
 		sendWord(theWord);
 		
 	    },
 	    error: function ajaxError(jqXHR) {
+		// log error to console
 		console.error('Error: ', jqXHR.responseText);
 	    }
 	});
 	
 }
 
-
+// log recieved message to screen
 function logMessage() {
     if (document.getElementById("guess").value.trim() != "")  {
         const message = document.getElementById("guess").value;
-        ////console.log("the word is: " + theWord);
-        //upperW = theWord.toUpperCase();
+
         if (message.toUpperCase() == String(theWord).toUpperCase()) {
-            ////console.log("guessed!!!!")
-            //theWord="";
-            //myturn = false;
-            //document.getElementById("word").innerHTML = "...";
-            //document.getElementById("guess").disabled = false;
+            
             clearCanvas();
             sendGuessed();
         }
@@ -240,16 +232,16 @@ function logMessage() {
     document.getElementById("guess").value = "";
 }
 
-
+// clear canvas
 function clearCanvas() {
     var canvas = document.getElementById("canvasSignature");
     canvas.getContext("2d").clearRect(0,0,canvas.width,canvas.height);
     //sendLine();
 }
 
-///         P2P config etc
+///         PeerJS config
 
-
+// using peerJS framework to provide an id and connect players together
 var peer = new Peer();
 var conn;
 var myturn = false;
@@ -260,27 +252,33 @@ peer.on('open', function(id) {
 	console.log(id);
     document.getElementById("idLbl").value=id;
 });
-		
+
+// function to request connect with given id. activated when id is entered into input box on webpage
 function connect() {
-    //console.log("connect function activated");
+    	// get the id that has been entered from the html element
 	var connId = document.getElementById("otherId").value;
+	
 	conn = peer.connect(connId);
+	//disable id input area and clear chat
 	document.getElementById("otherId").disabled = true;
 	document.getElementById("chatText").innerHTML = "";
 	conn.on('open', () => {
-		
+		//now that connection was successful, allow guesses / chat messages to be sent
 		document.getElementById("guess").disabled = false;
     });
-
+	
+	//    HANDLE RECEIVING OF MESSAGES AND WHAT TO DO WITH THEM - LOTS OF IF STATEMENTS
+	
+	// data is dictionary. data.status describes nature of data. 
 	conn.on('data', (data) => {
         if (data.status == "msg") {
+		// data is dictionary. data.status describes nature of data. in this case a message (hence "msg") so the html is updated
 	       document.getElementById("chatText").innerHTML = data.sender + ": " + data.message +"<br>"+ document.getElementById("chatText").innerHTML;
         }
 
         else if (data.status == "word") {
             theWord = data.secret;
-            //console.log(data.secret);
-            //console.log(theWord);
+            
         }
 
         else if (data.status == "notguessed") {
@@ -343,6 +341,7 @@ function connect() {
 	});
 
 	conn.on('close', () => {
+		//alert user that session has been ended
 		alert("Host Ended Session");
 		peer.destroy();
 	});
@@ -355,16 +354,23 @@ function connect() {
 let connected;
 
 function copyID() {
+	// use select() to copy id text in html element idLbl and copy it to clipboard
 	var copyText = document.getElementById("idLbl");
 	copyText.select();
 	document.execCommand("copy");
 		}
 
+
+
 peer.on('connection', (connection) => {
-    ////console.log("connected")
+	
+	// THIS IS IF YOU ARE HOST - HANDLES WHAT TO DO WHEN NEW CONNECTION IS RECEIVED, AS SUPPOSED TO CONNECTION REQUEST IS SUCCESSFUL
+	
 	var conn1 = connection;
+	// append new connection to conns array
 	conns.push(conn1);
 	if (started == false) {
+		//if game has already started
 		myturn = true;
 		document.getElementById("otherId").disabled = true;
 		document.getElementById("guess").disabled = true;
@@ -378,7 +384,7 @@ peer.on('connection', (connection) => {
 	}
 			
 	else {
-		
+		//if game has not started
 		connection.on("open",()=>{
 			connected = true;
 			sendWord(theWord);
@@ -390,6 +396,8 @@ peer.on('connection', (connection) => {
 			conns[i].send(data);
 		}
 
+	// HANDLING WHAT TO DO WITH MESSAGES - USE DATA.STATUS (DATA IS DICTIONARY) TO IDENTIFY NATURE OF DATA (EG. CHAT MESSAGE)
+		
         if (data.status == "msg"){
 		  document.getElementById("chatText").innerHTML = data.sender + ": " + data.message +"<br>"+ document.getElementById("chatText").innerHTML;
         }
@@ -406,9 +414,9 @@ peer.on('connection', (connection) => {
         else if (data.status == "notguessed") {
             clearInterval(x);
             document.getElementById("chatText").innerHTML = 'The word, "' + theWord + '" was not guessed.'+"<br>"+ document.getElementById("chatText").innerHTML;
-            //theWord="";
+           
             document.getElementById("word").innerHTML = "...";
-            //document.getElementById("otherId").disabled = true;
+            
             document.getElementById("guess").disabled = false;
             myturn = false;
             clearCanvas()
@@ -464,25 +472,47 @@ peer.on('connection', (connection) => {
 
         else {
             var sigCanvas =document.getElementById("canvasSignature");
-            //console.log("linereceived")
-            //sigCanvas.getContext("2d").drawImage(data,0,0)
             var image = new Image();
+		// load image onto canvas
             image.onload = function() {
-                sigCanvas.getContext("2d").drawImage(image, 0, 0);
+		// resize image to canvas size
+		sigCanvas.getContext("2d").drawImage(image, 0, 0,sigCanvas.width,sigCanvas.height);
+                
             };
+		//specify image source
             image.src = data;
+		
         }
 	});
 
 	connection.on('close',()=>{
-		////console.log("connection closed");
+		pass
 	})
 
 });
 
+function timer() {
+    const displayTimer = document.getElementById("timerH2");
+    var timeLeft = 90;
+    x = setInterval(()=>{
+        displayTimer.innerHTML = timeLeft;
+        timeLeft -= 1;
+        if (timeLeft == -1) {
+            clearInterval(x);
+            sendNotGuessed()
+            clearCanvas()
+        }
+
+    },1000)
+
+}
+
+// FUNCTIONS FOR SENDING DATA
+
 function sendmsg() {
+	// use dictionary for data - has status "msg" so receiving client know that it is a chat message.
 	const data = {
-        status: "msg",
+        	status: "msg",
 		message: document.getElementById("guess").value,
 		sender: username,
 	}
@@ -496,6 +526,7 @@ function sendmsg() {
     	for (var i = 0; i<conns.length; i++) {
     		conns[i].send(data);
     	}
+    // update chatText element on your own screen.
     document.getElementById("chatText").innerHTML = data.sender + ": " + data.message +"<br>"+ document.getElementById("chatText").innerHTML;
 	}
 }
@@ -520,24 +551,6 @@ function sendTimer() {
 
 
 
-function timer() {
-    const displayTimer = document.getElementById("timerH2");
-    var timeLeft = 90;
-    x = setInterval(()=>{
-        //console.log(timeLeft);
-        displayTimer.innerHTML = timeLeft;
-        timeLeft -= 1;
-        if (timeLeft == -1) {
-            clearInterval(x);
-            //document.getElementById("chatText").innerHTML = "The word was not guessed. It was " +theWord+"."+"<br>"+ document.getElementById("chatText").innerHTML;
-            sendNotGuessed()
-            clearCanvas()
-        }
-
-    },1000)
-
-}
-
 function sendNotGuessed() {
     const data = {
         status: "notguessed",
@@ -554,7 +567,7 @@ function sendNotGuessed() {
             conns[i].send(data);
         }
         if (countTurn < conns.length) {
-                //console.log("fhfhfhfhfhhf")
+                
                 myturn = false;
                 document.getElementById("word").innerHTML = "...";
                 sendTurn();
@@ -571,11 +584,6 @@ function sendNotGuessed() {
                 document.getElementById("guess").disabled = true;
                 countTurn = 0;
             }
-
-        /*for (var i = 0; i<conns.length; i++) {
-            conns[i].send(data);
-        }*/
-    
     }
 }
 
@@ -596,25 +604,18 @@ function sendGuessed() {
             conns[i].send(data);
         }
         if (countTurn < conns.length) {
-                //console.log("fhfhfhfhfhhf")
+              
                 sendTurn();
                 countTurn +=1;
             }
 
             else if (countTurn == conns.length) {
-                //console.log(conns.length);
-                //console.log(countTurn);
-                //console.log("elsif");
                 myturn = true;
                 sendMyTurn();
                 getWord();
                 document.getElementById("guess").disabled = true;
                 countTurn = 0;
             }
-
-        /*for (var i = 0; i<conns.length; i++) {
-            conns[i].send(data);
-        }*/
     document.getElementById("chatText").innerHTML = data.sender + " guessed the word!" +"<br>"+ document.getElementById("chatText").innerHTML;
     }
 }
@@ -624,7 +625,6 @@ function sendTurn() {
     const data = {
         status: "turn",
     }
-    //console.log(countTurn)
     conns[countTurn].send(data);
 
 }
@@ -650,19 +650,25 @@ function sendMyTurn() {
     sendTimer();
 }
 
+
+// sendLine is used to send image of canvas to other users
 function sendLine() {
     var sigCanvas =document.getElementById("canvasSignature"); 
+    // convert canvas element to sendable data
     const lineInfo = sigCanvas.toDataURL();
 
+	
+    // check to see if host or not
     if (conn) {
+	// if not host just need to send to host
         conn.send(lineInfo);
     }
 
-    else {              
+    else {  
+	// if host need to send to all connections in conns array
         for (var i = 0; i<conns.length; i++) {
                         conns[i].send(lineInfo);
         }
-    //document.getElementById("chatText").innerHTML = data.sender + " - " + data.message +"<br>"+ document.getElementById("chatText").innerHTML;
     }
 }
 
@@ -684,4 +690,4 @@ function sendWord(word) {
     }
 }
 
-///         END OF CHAT FUNCTION*/
+
