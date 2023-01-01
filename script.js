@@ -185,8 +185,7 @@ const username = prompt("Enter a username","Guest")
 
 if (username != null) { 
     players.push(username);
-    //console.log(username);
-    //console.log(players);
+    
 }
 
 function getWord() {
@@ -216,13 +215,13 @@ function getWord() {
 function logMessage() {
     if (document.getElementById("guess").value.trim() != "")  {
         const message = document.getElementById("guess").value;
-
+	//check if message is theWord ie someone guessed correctly
         if (message.toUpperCase() == String(theWord).toUpperCase()) {
             
             clearCanvas();
             sendGuessed();
         }
-        //document.getElementById("chatText").innerHTML = (("You: "+message.value) + "<br/>") + document.getElementById("chatText").innerHTML;
+        
         else {
             //console.log(message);
             sendmsg();
@@ -235,7 +234,7 @@ function logMessage() {
 function clearCanvas() {
     var canvas = document.getElementById("canvasSignature");
     canvas.getContext("2d").clearRect(0,0,canvas.width,canvas.height);
-    //sendLine();
+   
 }
 
 ///         PeerJS config
@@ -282,7 +281,7 @@ function connect() {
 
         else if (data.status == "notguessed") {
             clearInterval(x);
-            //theWord="";
+           
             document.getElementById("chatText").innerHTML = 'The word, "' +theWord+'" was not guessed.'+"<br>"+ document.getElementById("chatText").innerHTML;
             myturn = false;
             //document.getElementById("chatText").innerHTML = data.sender + " guessed the word!" +"<br>"+ document.getElementById("chatText").innerHTML;
@@ -296,15 +295,13 @@ function connect() {
 
         else if (data.status == "guessed") {
             clearInterval(x);
-            //theWord="";
+            
             document.getElementById("chatText").innerHTML = data.sender + " guessed the word!" +"<br>"+ document.getElementById("chatText").innerHTML;
             if (myturn == false) {
                 document.getElementById("chatText").innerHTML = "The word was " +theWord+"."+"<br>"+ document.getElementById("chatText").innerHTML;
             }
             myturn = false;
-            //document.getElementById("chatText").innerHTML = data.sender + " guessed the word!" +"<br>"+ document.getElementById("chatText").innerHTML;
             document.getElementById("word").innerHTML = "...";
-            //document.getElementById("otherId").disabled = true;
             document.getElementById("guess").disabled = false;
             clearCanvas();
             
@@ -317,7 +314,7 @@ function connect() {
         }
 
         else if (data.status == "turn") {
-            ////console.log("line305")
+            //configure game for your turn - enable drawing (by setting myturn to True) and disable chat
             myturn = true;
             document.getElementById("guess").disabled = true;
             sendMyTurn();
@@ -328,10 +325,10 @@ function connect() {
 
         else {
             var sigCanvas =document.getElementById("canvasSignature");
-            ////console.log("linereceived")
-            //sigCanvas.getContext("2d").drawImage(data,0,0)
+            
             var image = new Image();
             image.onload = function() {
+		//load the image onto the canvas and resize it to canvas dimensions
                 sigCanvas.getContext("2d").drawImage(image, 0, 0,sigCanvas.width,sigCanvas.height);
             };
             image.src = data;
@@ -449,16 +446,13 @@ peer.on('connection', (connection) => {
             clearCanvas()
 
             if (countTurn < conns.length) {
-                ////console.log(conns);
-                ////console.log(conns.length);
-                ////console.log(countTurn);
+                
                 sendTurn();
                 countTurn += 1;
             }
 
             else if (countTurn == conns.length) {
-                //console.log(conns.length);
-                //console.log(countTurn);
+                
                 myturn = true;
                 sendMyTurn();
                 getWord();
@@ -496,6 +490,7 @@ function timer() {
     x = setInterval(()=>{
         displayTimer.innerHTML = timeLeft;
         timeLeft -= 1;
+	// if timer runs out
         if (timeLeft == -1) {
             clearInterval(x);
             sendNotGuessed()
@@ -574,9 +569,6 @@ function sendNotGuessed() {
             }
 
             else if (countTurn == conns.length) {
-                //console.log(conns.length);
-                //console.log(countTurn);
-                //console.log("elsif");
                 myturn = true;
                 sendMyTurn();
                 getWord();
